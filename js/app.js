@@ -71,7 +71,7 @@ const quizInfo = [
         b: "Care of Magical Creatures",
         c: "Charms",
         d: "Transfiguration",
-        answer: "c"
+        answer: "b"
     }, {
         question: "How many Hogwart's houses are there?",
         a: "4",
@@ -175,7 +175,7 @@ submitBtn.addEventListener("click", () => {
     if (currentQuiz < quizInfo.length) {
         loadQuiz();
     } else {
-        quiz.innerHTML = `<h2>Congratulations ! Your score for this Harry Potter Quiz is ${score}/${quizInfo.length} !!</h2>`;
+        quiz.innerHTML = `<h2>Congratulations ! Your score for this Harry Potter Quiz is ${score}/${quizInfo.length} !!</h2> <button onclick="location.reload()">Play Again !</button>`;
     }
 })
 
