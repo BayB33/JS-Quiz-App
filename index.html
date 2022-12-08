@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+    <!-- Container for the quiz -->
+    <section class="container" id="quiz">
+
+        <!-- Dynamically generated question-->
+        <h2 id="question">Question</h2>
+
+        <!-- Dynamically generated list of possible answers -->
+        <ul>
+            <li>
+                <input type="radio" id="a" name="answer" class="answer" value="a">
+                <label id="a_text" for="a">Question</label>
+            </li>
+            <li>
+                <input type="radio" id="b" name="answer" class="answer" value="b">
+                <label id="b_text" for="b">Question</label>
+            </li>
+            <li>
+                <input type="radio" id="c" name="answer" class="answer" value="c">
+                <label id="c_text" for="c">Question</label>
+            </li>
+            <li>
+                <input type="radio" id="d" name="answer" class="answer" value="d">
+                <label id="d_text" for="d">Question</label>
+            </li>
+        </ul>
+        <button id="submit">Submit &MediumSpace; &rarr;</button>
+    </section>
+
+    <!-- Script Link -->
+    <script src="js/app.js"></script>
+</body>
+</html>
