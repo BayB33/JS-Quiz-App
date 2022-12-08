@@ -103,11 +103,10 @@ const submitBtn = document.getElementById("submit");
 const answerElements = document.getElementsByClassName("answer");
 
 /* As answerElements is an object, use Object.keys to get an array of each element's key */
-const anything = Object.keys(answerElements);
+const elementIndex = Object.keys(answerElements);
 
 
-/* Declare a variable to store user's answers and a variable to count user's score */
-const userAnswers = [];
+/* Declare a variable to count user's score */
 let score = 0;
 
 /* Declare a variable and set it to zero, which purpose is to iterate 
@@ -127,16 +126,12 @@ function loadQuiz() {
     to the currentQuiz value*/
     const currentQuizInfo = quizInfo[currentQuiz];
     currentCorrectAnswer = currentQuizInfo.answer;
-    console.log(userAnswers);
-    console.log(currentQuizInfo.answer);
 
     question.innerText = currentQuizInfo.question;
     a_text.innerText = currentQuizInfo.a;
     b_text.innerText = currentQuizInfo.b;
     c_text.innerText = currentQuizInfo.c;
     d_text.innerText = currentQuizInfo.d;
-
-    
 }
 
 /* Create a function that:
@@ -154,7 +149,7 @@ function getUserAnswer() {
 
 /* Create a function to uncheck the radio buttons every time loadQuiz() is invoked */
 function uncheckRadio() {
-    anything.forEach((element) => {
+    elementIndex.forEach((element) => {
         answerElements[element].checked = false;
     });
 }
@@ -165,9 +160,9 @@ function uncheckRadio() {
     - Increment the current value of currentQuiz,
     - loadQuiz() again with the new currentQuiz values,
     - Alert user when they finished the quiz,
-    - Display the number of correct answers */
+    - Display the number of correct answers
+    - Add a button to start the quiz again */
 submitBtn.addEventListener("click", () => {
-    userAnswers.push(getUserAnswer());
     if(currentCorrectAnswer == getUserAnswer()) {
         score++;
     }
@@ -175,10 +170,16 @@ submitBtn.addEventListener("click", () => {
     if (currentQuiz < quizInfo.length) {
         loadQuiz();
     } else {
-        quiz.innerHTML = `<h2>Congratulations ! Your score for this Harry Potter Quiz is ${score}/${quizInfo.length} !!</h2> <button onclick="location.reload()">Play Again !</button>`;
+        quiz.innerHTML = `
+        <h2>
+            Congratulations ! Your score for this Harry Potter Quiz 
+            is ${score}/${quizInfo.length} !!
+        </h2> 
+        <button onclick="location.reload()">
+            Play Again !
+        </button>`;
     }
 })
-
 
 
 /* Call the loadQuiz function directly so that when the page loads, 
